@@ -1,8 +1,6 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background: #0a0a0a;
-  color: #eee;
-  margin: 0;
+  margin: 100;
 }
 
 .page {
@@ -11,13 +9,10 @@ body {
   padding: 0 20px 60px;
 }
 
-/* --- Header --- */
-.app-header {
-  padding: 40px 0 24px;
-}
+.app-header { padding: 40px 0 24px; }
 
 .app-header h1 {
-  color: #4da6ff;
+  color: var(--accent);
   margin: 0 0 6px 0;
   font-size: 30px;
   font-weight: 700;
@@ -25,15 +20,14 @@ body {
 }
 
 .tagline {
-  color: #888;
+  color: var(--text-muted);
   margin: 0 0 24px 0;
   font-size: 14px;
 }
 
-/* --- Tabs (common region) --- */
 .tabs {
   display: inline-flex;
-  background: #1a1a1a;
+  background: var(--tabs-bg);
   border-radius: 8px;
   padding: 4px;
   gap: 4px;
@@ -41,7 +35,7 @@ body {
 
 .tab {
   background: transparent;
-  color: #999;
+  color: var(--tab-text);
   border: none;
   padding: 8px 18px;
   border-radius: 6px;
@@ -52,26 +46,13 @@ body {
   transition: background 0.15s ease, color 0.15s ease;
 }
 
-.tab.active {
-  background: #4da6ff;
-  color: white;
-}
+.tab.active { background: var(--accent); color: white; }
+.tab:not(.active):hover { background: var(--tab-hover-bg); color: var(--text-color); }
 
-.tab:not(.active):hover {
-  background: #222;
-  color: #ccc;
-}
-
-/* --- Toolbar --- */
-.toolbar {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 28px 0 24px;
-}
+.toolbar { display: flex; align-items: center; gap: 14px; margin: 28px 0 24px; }
 
 button.fetch-btn {
-  background: #4da6ff;
+  background: var(--accent);
   border: none;
   padding: 10px 18px;
   border-radius: 6px;
@@ -82,47 +63,30 @@ button.fetch-btn {
   transition: background 0.15s ease, transform 0.1s ease;
 }
 
-button.fetch-btn:hover {
-  background: #3d8fe0;
-}
+button.fetch-btn:hover { background: var(--accent-hover); }
+button.fetch-btn:active { transform: scale(0.97); }
 
-button.fetch-btn:active {
-  transform: scale(0.97);
-}
-
-/* --- Status / loading --- */
-.status-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
+.status-row { display: flex; align-items: center; margin-bottom: 16px; }
 
 .spinner {
   display: inline-block;
   width: 16px;
   height: 16px;
-  border: 3px solid #333;
-  border-top: 3px solid #4da6ff;
+  border: 3px solid var(--spinner-track);
+  border-top: 3px solid var(--accent);
   border-radius: 50%;
   margin-right: 8px;
   animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-.status {
-  color: #888;
-  font-size: 13px;
-}
+.status { color: var(--text-muted); font-size: 13px; }
 
-/* --- Cards --- */
 .card {
   display: block;
-  background: #151515;
-  border: 1px solid #232323;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 10px;
   padding: 18px;
   margin-bottom: 12px;
@@ -132,8 +96,8 @@ button.fetch-btn:active {
 }
 
 .card:hover {
-  border-color: #4da6ff;
-  background: #181818;
+  border-color: var(--accent);
+  background: var(--card-hover-bg);
   transform: translateY(-1px);
 }
 
@@ -141,17 +105,49 @@ button.fetch-btn:active {
   margin: 0 0 12px 0;
   font-size: 16px;
   line-height: 1.5;
-  color: #f0f0f0;
+  color: var(--card-title);
   font-weight: 500;
 }
 
 .card-badge {
   display: inline-block;
-  background: #1f2937;
-  color: #7fb8ff;
+  background: var(--badge-bg);
+  color: var(--badge-text);
   font-size: 11px;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
   letter-spacing: 0.3px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-top .card-title {
+  margin: 0;
+  flex: 1;
+}
+
+.bookmark-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.bookmark-btn.active {
+  color: #ffc93c;
+}
+
+.bookmark-btn:hover {
+  color: #ffc93c;
 }

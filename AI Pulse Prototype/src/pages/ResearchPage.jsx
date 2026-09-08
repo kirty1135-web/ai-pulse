@@ -27,7 +27,7 @@ function ResearchPage() {
       )}
 
       {research.map((item) => (
-        <ArticleCard key={item.id} title={item.title} source={item.source} link={item.link} />
+        <ArticleCard key={item.id} id={item.id} title={item.title} source={item.source} link={item.link} />
       ))}
     </div>
   );

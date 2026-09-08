@@ -22,6 +22,7 @@ function Header() {
         >
           Research
         </Link>
+        <Link to="/bookmarks" className={location.pathname=== "/bookmarks" ? "tab active" : "tab"}>Bookmarks</Link>
         <button onClick={toggleTheme} aria-label="Toggle dark mode">
         {theme === 'light' ? '🌙' : '☀️'}
         </button>
